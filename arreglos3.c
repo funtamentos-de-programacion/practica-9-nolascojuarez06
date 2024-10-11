@@ -7,20 +7,25 @@
 
 int main() {
     int arr[5] = {1, 2, 3, 4, 5};
-    // TODO: (6) Declara el apuntador al inicio del arreglo
-    // TODO: (7) Declara el apuntador al final del arreglo
-    
+    int* start = arr;
+    int* end = arr + 4;
 
-    // TODO: (8) Imprime el arreglo original
-
-    // TODO: (9) Crea un ciclo que invierita el arreglo, TIP: es neceario usar un apuntador temporal
-    
-    // Mostrar el arreglo invertido
-    printf("[ ");
-    for (int i = 0; i < 5; i++) {
-        printf("%d, ", arr[i]);
+    for(int i = 0; i < 5 ; i++){
+        printf("%d ", *(start + i));
     }
-    printf(" ]\n");
+    printf("\n");
+
+    while (start < end){
+        int temp = *start;
+        *start = *end;
+        *end = temp;
+        start++;
+        end--;
+    }
+
+    for (int i = 0; i < 5; i++){
+        printf("%d ", arr[i]);
+    }
     
     return 0;
 }
